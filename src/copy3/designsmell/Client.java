@@ -14,7 +14,8 @@ public class Client {
 		ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 			//Service service = context.getBean(Service.class);
 		
-		OutputData printer = new Printer();
+		OutputData printer = context.getBean(Printer.class);
+		
 		OutputData database = new Database();
 		
 		InputData Keyboard = new Keyboard();
@@ -29,6 +30,8 @@ public class Client {
 		
 	
 		copyFronScanner.copy(scanner);
+		
+		context.close();
 	}
 
 }
